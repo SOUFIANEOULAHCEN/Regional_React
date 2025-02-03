@@ -5,7 +5,7 @@ import {
   likes_VIDEO,
   dislikes_VIDEO,
 } from "./PlaylistActions";
-
+import man from '../img/man.jpeg';
 const etatInitial = {
   playlists: [
     {
@@ -31,7 +31,7 @@ const etatInitial = {
           auteur: {
             nom: "Dupont",
             prenom: "Jean",
-            photo: "said.jpg",
+            photo: {man},
           },
         },
         {
@@ -53,7 +53,7 @@ const etatInitial = {
           auteur: {
             nom: "GAHI",
             prenom: "Said",
-            photo: "said.jpg",
+            photo: {man},
           },
         },
       ],
@@ -76,11 +76,11 @@ const etatInitial = {
           ],
           likes: 250,
           dislikes: 8,
-          lien: "https://www.youtube.com/watch?v=examplePythonIntro",
+          lien: "https://www.youtube.com/watch?v=GCYYkOSKj80&list=PLuXY3ddo_8nzCVqXcTFqwcM5R0gZiMRiW",
           auteur: {
             nom: "Martin",
             prenom: "Pierre",
-            photo: "pierre.jpg",
+            photo: {man},
           },
         },
         {
@@ -96,11 +96,11 @@ const etatInitial = {
           ],
           likes: 180,
           dislikes: 3,
-          lien: "https://www.youtube.com/watch?v=examplePythonDataStructures",
+          lien: "https://www.youtube.com/watch?v=xNm6y8SYcs4&list=PLuXY3ddo_8nzCVqXcTFqwcM5R0gZiMRiW&index=2",
           auteur: {
             nom: "Dupont",
             prenom: "Jean",
-            photo: "jean.jpg",
+            photo: {man},
           },
         },
       ],
@@ -122,11 +122,11 @@ const etatInitial = {
           ],
           likes: 300,
           dislikes: 5,
-          lien: "https://www.youtube.com/watch?v=exampleDataIntro",
+          lien: "https://www.youtube.com/watch?v=6oKYY8H9LtE&list=PLKV6WevXj-lV2tqD_3ljxspt4qAFGK-M1",
           auteur: {
             nom: "Leclerc",
             prenom: "Marie",
-            photo: "marie.jpg",
+            photo: {man},
           },
         },
         {
@@ -142,11 +142,11 @@ const etatInitial = {
           ],
           likes: 220,
           dislikes: 7,
-          lien: "https://www.youtube.com/watch?v=exampleSQLOptimization",
+          lien: "https://www.youtube.com/watch?v=NEsOcYlbqr8&list=PLKV6WevXj-lV2tqD_3ljxspt4qAFGK-M1&index=2",
           auteur: {
             nom: "Lemoine",
             prenom: "Luc",
-            photo: "luc.jpg",
+            photo: {man},
           },
         },
       ],
@@ -168,11 +168,11 @@ const etatInitial = {
           ],
           likes: 350,
           dislikes: 4,
-          lien: "https://www.youtube.com/watch?v=exampleCloudIntro",
+          lien: "https://www.youtube.com/watch?v=mMmiZTgOW2Q&list=PLoMFrq1Jfnr82k8rSczHHvaf7Y_lSPbaW",
           auteur: {
             nom: "Benoit",
             prenom: "Lucas",
-            photo: "lucas.jpg",
+            photo: {man},
           },
         },
         {
@@ -188,11 +188,11 @@ const etatInitial = {
           ],
           likes: 280,
           dislikes: 10,
-          lien: "https://www.youtube.com/watch?v=exampleCloudProviders",
+          lien: "https://www.youtube.com/watch?v=K9a1fGQilwI&list=PLoMFrq1Jfnr82k8rSczHHvaf7Y_lSPbaW&index=2",
           auteur: {
             nom: "Lemoine",
             prenom: "Clara",
-            photo: "clara.jpg",
+            photo:{man},
           },
         },
       ],
@@ -214,11 +214,11 @@ const etatInitial = {
           ],
           likes: 150,
           dislikes: 5,
-          lien: "https://www.youtube.com/watch?v=exampleUMLIntro",
+          lien: "https://www.youtube.com/watch?v=K9a1fGQilwI&list=PLoMFrq1Jfnr82k8rSczHHvaf7Y_lSPbaW&index=2",
           auteur: {
             nom: "Durand",
             prenom: "Élise",
-            photo: "elise.jpg",
+            photo:{man},
           },
         },
         {
@@ -234,11 +234,11 @@ const etatInitial = {
           ],
           likes: 180,
           dislikes: 8,
-          lien: "https://www.youtube.com/watch?v=exampleUMLClasses",
+          lien: "https://www.youtube.com/watch?v=K9a1fGQilwI&list=PLoMFrq1Jfnr82k8rSczHHvaf7Y_lSPbaW&index=2",
           auteur: {
             nom: "Sauvage",
             prenom: "Maxime",
-            photo: "maxime.jpg",
+            photo:{man},
           },
         },
       ],
@@ -259,7 +259,8 @@ const PlaylistReducer = (state = etatInitial, action) => {
     case SELECTED_PLAYLIST:
       return {
         ...state , 
-        selectedPlaylist: action.payload,
+        // selectedPlaylist:state.selectedPlaylist = action.payload,
+        selectedPlaylist:action.payload,
       };
     case likes_VIDEO:
       return {
@@ -280,11 +281,16 @@ const PlaylistReducer = (state = etatInitial, action) => {
           ...plst,
           videos: plst.videos.map((video) =>
             video.id == action.payload
-              ? { ...video, likes: video.dislikes + 1 }
+              ? { ...video, dislikes: video.dislikes + 1 }
               : video
           ),
         })),
       };
+      // case ADD_COMMENT:
+      //   return{
+      //     ...state , 
+
+      //   }
     default:
       return state;
   }
