@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { PostsContextX } from "../../context/PostsContext";
 
 export default function CardPost(props) {
-  const { DeletePost } = useContext(PostsContextX);
+  const { DeletePost  } = useContext(PostsContextX);
 
   const handleDelete = () => {
     DeletePost(props.post.id);
@@ -14,9 +14,10 @@ export default function CardPost(props) {
         <h2 className="card-title font-bold">{props.post.title}</h2>
         <p>{props.post.body}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-secondary" onClick={handleDelete}>
+          <button className="btn btn-error" onClick={handleDelete}>
             Delete
           </button>
+          
         </div>
       </div>
     </div>

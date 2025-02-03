@@ -12,7 +12,7 @@ export default function HomePosts() {
   const posts = useContext(PostsContextX);
 
   const navigate = useNavigate();
-  console.log(posts.Posts);
+  console.log(posts.Posts.slice(0, 5));
   // Vérification si les posts sont chargés
   if (!posts.Posts) {
     return <div>Loading...</div>;

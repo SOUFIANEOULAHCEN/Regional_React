@@ -43,6 +43,14 @@ export default function PostsProvider({ children }) {
         setPosts((prv)=>[...prv , res.data]);
       });
   };
+
+  const UpdatePost = (post) => {
+    axios
+    .put(`https://jsonplaceholder.typicode.com/posts/${post.id}`, post)
+    .then((res)=>{
+      setPosts((prv)=> prv.map((pst)=>pst.id === post.id ? post :pst))
+    })
+  }
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -51,7 +59,7 @@ export default function PostsProvider({ children }) {
     );
   }
   return (
-    <PostsContextX.Provider value={{ Posts, DeletePost ,AddPost }}>
+    <PostsContextX.Provider value={{ Posts, DeletePost ,AddPost , UpdatePost }}>
       {children}
     </PostsContextX.Provider>
   );
