@@ -5,7 +5,7 @@ import {
   likes_VIDEO,
   dislikes_VIDEO,
 } from "./PlaylistActions";
-import man from '../img/man.jpeg';
+import man from "../img/man.jpeg";
 const etatInitial = {
   playlists: [
     {
@@ -31,7 +31,7 @@ const etatInitial = {
           auteur: {
             nom: "Dupont",
             prenom: "Jean",
-            photo: {man},
+            photo: { man },
           },
         },
         {
@@ -53,7 +53,7 @@ const etatInitial = {
           auteur: {
             nom: "GAHI",
             prenom: "Said",
-            photo: {man},
+            photo: { man },
           },
         },
       ],
@@ -80,7 +80,7 @@ const etatInitial = {
           auteur: {
             nom: "Martin",
             prenom: "Pierre",
-            photo: {man},
+            photo: { man },
           },
         },
         {
@@ -100,7 +100,7 @@ const etatInitial = {
           auteur: {
             nom: "Dupont",
             prenom: "Jean",
-            photo: {man},
+            photo: { man },
           },
         },
       ],
@@ -126,7 +126,7 @@ const etatInitial = {
           auteur: {
             nom: "Leclerc",
             prenom: "Marie",
-            photo: {man},
+            photo: { man },
           },
         },
         {
@@ -146,7 +146,7 @@ const etatInitial = {
           auteur: {
             nom: "Lemoine",
             prenom: "Luc",
-            photo: {man},
+            photo: { man },
           },
         },
       ],
@@ -172,7 +172,7 @@ const etatInitial = {
           auteur: {
             nom: "Benoit",
             prenom: "Lucas",
-            photo: {man},
+            photo: { man },
           },
         },
         {
@@ -192,7 +192,7 @@ const etatInitial = {
           auteur: {
             nom: "Lemoine",
             prenom: "Clara",
-            photo:{man},
+            photo: { man },
           },
         },
       ],
@@ -218,7 +218,7 @@ const etatInitial = {
           auteur: {
             nom: "Durand",
             prenom: "Élise",
-            photo:{man},
+            photo: { man },
           },
         },
         {
@@ -238,7 +238,7 @@ const etatInitial = {
           auteur: {
             nom: "Sauvage",
             prenom: "Maxime",
-            photo:{man},
+            photo: { man },
           },
         },
       ],
@@ -258,9 +258,9 @@ const PlaylistReducer = (state = etatInitial, action) => {
       };
     case SELECTED_PLAYLIST:
       return {
-        ...state , 
+        ...state,
         // selectedPlaylist:state.selectedPlaylist = action.payload,
-        selectedPlaylist:action.payload,
+        selectedPlaylist: action.payload,
       };
     case likes_VIDEO:
       return {
@@ -286,11 +286,21 @@ const PlaylistReducer = (state = etatInitial, action) => {
           ),
         })),
       };
-      // case ADD_COMMENT:
-      //   return{
-      //     ...state , 
-
-      //   }
+    case ADD_COMMENT:
+      return {
+        ...state,
+        playlists: state.playlists.map((plst) => ({
+          ...plst,
+          videos: plst.videos.map((video) =>
+            video.id === action.payload.idVideo
+              ? {
+                  ...video,
+                  commentaires: [...video.commentaires, action.payload.comment],
+                }
+              : video
+          ),
+        })),
+      };
     default:
       return state;
   }

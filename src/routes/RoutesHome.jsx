@@ -23,18 +23,18 @@ const RoutesHome = () => {
   return (
     <div className="min-h-screen bg-gray-900 flex justify-center items-center">
       {showButton ? (
-        <div className="grid grid-cols-4 gap-4">
-          <Link
+        <div className="grid grid-cols-2 gap-4 w-4/5">
+          {/* <Link
             to="/Posts"
             className="btn bg-gray-100 text-gray-900 shadow-lg font-semibold px-4 py-2 rounded-lg hover:bg-gray-300 hover:text-gray-950 hover:scale-[1.05] duration-300 transition"
             onClick={handleClick}
           >
             Gestion des Posts
-          </Link>
+          </Link> */}
 
           <Link
             to="/Synthese3"
-            className="btn bg-gray-100 text-gray-900 shadow-lg font-semibold px-4 py-2 rounded-lg hover:bg-gray-300 hover:text-gray-950 hover:scale-[1.05] duration-300 transition"
+            className="btn bg-gray-100 text-gray-900 shadow-lg font-semibold px-4 py-2 rounded-lg hover:bg-gray-300 hover:text-gray-950 hover:scale-[1.02] duration-300 transition"
             onClick={handleClick}
           >
            Application de Gestion de Playlists Vidéos
@@ -42,10 +42,10 @@ const RoutesHome = () => {
 
           <Link
             to="/Synthese4"
-            className="btn bg-gray-100 text-gray-900 shadow-lg font-semibold px-4 py-2 rounded-lg hover:bg-gray-300 hover:text-gray-950 hover:scale-[1.05] duration-300 transition"
+            className="btn bg-gray-100 text-gray-900 shadow-lg font-semibold px-4 py-2 rounded-lg hover:bg-gray-300 hover:text-gray-950 hover:scale-[1.02] duration-300 transition"
             onClick={handleClick}
           >
-            Synthese4
+           Analyse des ventes du magasin
           </Link>
         </div>
       ) : loading ? (

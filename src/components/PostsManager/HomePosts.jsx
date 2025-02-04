@@ -3,6 +3,8 @@ import { PostsContextX } from "../../context/PostsContext";
 import CardPost from "./CardPost";
 import { useNavigate } from "react-router-dom";
 import AddPost from "./AddPost";
+import { FaCaretLeft } from "react-icons/fa6";
+
 
 export default function HomePosts() {
   const [showModal, setshowModal] = useState(false);
@@ -24,7 +26,24 @@ export default function HomePosts() {
   };
   return (
     <div className="px-4 py-4">
-      {showModal && <AddPost posts={posts} showModal={showModal} setshowModal={setshowModal} />}
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+        className="btn flex items-center justify-center  rounded-lg p-3 border border-gray-100 bg-opacity-30 backdrop-blur-lg backdrop-filter shadow-lg hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all my-4"
+      >
+        <span className="text-xl">
+          <FaCaretLeft />
+        </span>
+        <span>Home</span>
+      </button>
+      {showModal && (
+        <AddPost
+          posts={posts}
+          showModal={showModal}
+          setshowModal={setshowModal}
+        />
+      )}
       {!showModal && (
         <div>
           <h1 className="text-gray-100 text-4xl text-center my-4 z-10">
@@ -43,12 +62,12 @@ export default function HomePosts() {
               <div>Aucun post pour le moment</div>
             )}
           </div>
-          <button
+          {/* <button
             className="btn btn-secondary w-full my-4"
             onClick={() => navigate("/")}
           >
             Return
-          </button>
+          </button> */}
         </div>
       )}
     </div>
