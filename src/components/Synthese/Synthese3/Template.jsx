@@ -5,6 +5,8 @@ import { FaChevronDown } from "react-icons/fa";
 import { FaChevronUp } from "react-icons/fa";
 import { FaCaretLeft } from "react-icons/fa6";
 import { useSelector, useDispatch } from "react-redux";
+import Swal from "sweetalert2";
+
 import {
   SelectPlaylist,
   SelectVideo,
@@ -46,19 +48,33 @@ export default function Template() {
   const HandleDisLike = (idVideo) => {
     dispatch(dislikesVideo(idVideo));
   };
+
   const HandleComment = (idVideo, comment) => {
     if (comment.trim() === "") {
-      setShowAlert(true);
-      setTimeout(() => {
-        setShowAlert(false);
-      }, 2500);
-
+      Swal.fire({
+        title: "Le commentaire est vide",
+        icon: "warning",
+        confirmButtonText: "OK",
+        timer: 2500,
+      });
       return;
     }
     dispatch(AddComment(idVideo, comment));
     setCommentText("");
-    setShowAlert(false);
   };
+  // const HandleComment = (idVideo, comment) => {
+  //   if (comment.trim() === "") {
+  //     setShowAlert(true);
+  //     setTimeout(() => {
+  //       setShowAlert(false);
+  //     }, 2500);
+
+  //     return;
+  //   }
+  //   dispatch(AddComment(idVideo, comment));
+  //   setCommentText("");
+  //   setShowAlert(false);
+  // };
   useEffect(() => {
     console.log(selectedPlaylist);
     // console.log(selectedVideo);
@@ -83,22 +99,35 @@ export default function Template() {
       </button>
       <div className=" flex flex-col justify-center items-center overflow-x-hidden">
         {showAlert && (
-          <div role="alert" className="alert alert-error">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 shrink-0 stroke-current"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span>Le commentaire est vide</span>
-          </div>
+          // <div role="alert" className="alert alert-error">
+          //   <svg
+          //     xmlns="http://www.w3.org/2000/svg"
+          //     className="h-6 w-6 shrink-0 stroke-current"
+          //     fill="none"
+          //     viewBox="0 0 24 24"
+          //   >
+          //     <path
+          //       strokeLinecap="round"
+          //       strokeLinejoin="round"
+          //       strokeWidth="2"
+          //       d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+          //     />
+          //   </svg>
+          //   <span>Le commentaire est vide</span>
+          // </div>
+          <template id="my-template">
+            <swal-title>Le commentaire est vide</swal-title>
+            <swal-icon type="warning" color="red"></swal-icon>
+            {/* <swal-button type="confirm">Save As</swal-button> */}
+            <swal-button type="cancel">Cancel</swal-button>
+            {/* <swal-button type="deny">Close without Saving</swal-button> */}
+            <swal-param name="allowEscapeKey" value="false" />
+            <swal-param name="customClass" value='{ "popup": "my-popup" }' />
+            <swal-function-param
+              name="didOpen"
+              value="popup => console.log(popup)"
+            />
+          </template>
         )}
         <div className="grid grid-cols-[1.5fr_2fr_1.5fr] gap-3 m-4 rounded-lg w-full h-auto ">
           {/* section playlist */}
@@ -231,7 +260,7 @@ export default function Template() {
                   ? plst.videos.map((video) => {
                       const videoId2 = new URL(video.lien).searchParams.get(
                         "v"
-                      ); 
+                      );
                       const embedUrl = `https://img.youtube.com/vi/${videoId2}/hqdefault.jpg`;
                       return (
                         <li

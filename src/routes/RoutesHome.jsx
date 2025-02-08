@@ -11,13 +11,13 @@ const RoutesHome = () => {
   };
 
   useEffect(() => {
-    let timer;
+    // let timer;
     if (loading) {
-      timer = setTimeout(() => {
+      setTimeout(() => {
         setLoading(false);
-      }, 2000);
+      }, 3000);
     }
-    return () => clearTimeout(timer); // Nettoyer le timer
+    // return () => clearTimeout(timer); // Nettoyer le timer
   }, [loading]);
 
   return (
@@ -37,7 +37,7 @@ const RoutesHome = () => {
             className="btn bg-gray-100 text-gray-900 shadow-lg font-semibold px-4 py-2 rounded-lg hover:bg-gray-300 hover:text-gray-950 hover:scale-[1.02] duration-300 transition"
             onClick={handleClick}
           >
-           Application de Gestion de Playlists Vidéos
+            Application de Gestion de Playlists Vidéos
           </Link>
 
           <Link
@@ -45,7 +45,7 @@ const RoutesHome = () => {
             className="btn bg-gray-100 text-gray-900 shadow-lg font-semibold px-4 py-2 rounded-lg hover:bg-gray-300 hover:text-gray-950 hover:scale-[1.02] duration-300 transition"
             onClick={handleClick}
           >
-           Analyse des ventes du magasin
+            Analyse des ventes du magasin
           </Link>
         </div>
       ) : loading ? (
