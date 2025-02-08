@@ -31,7 +31,8 @@ const etatInitial = {
           auteur: {
             nom: "Dupont",
             prenom: "Jean",
-            photo: { man },
+            photo:
+              "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
           },
         },
         {
@@ -53,7 +54,8 @@ const etatInitial = {
           auteur: {
             nom: "GAHI",
             prenom: "Said",
-            photo: { man },
+            photo:
+              "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           },
         },
       ],
@@ -80,7 +82,8 @@ const etatInitial = {
           auteur: {
             nom: "Martin",
             prenom: "Pierre",
-            photo: { man },
+            photo:
+              "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
           },
         },
         {
@@ -100,7 +103,8 @@ const etatInitial = {
           auteur: {
             nom: "Dupont",
             prenom: "Jean",
-            photo: { man },
+            photo:
+              "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
           },
         },
       ],
@@ -126,7 +130,8 @@ const etatInitial = {
           auteur: {
             nom: "Leclerc",
             prenom: "Marie",
-            photo: { man },
+            photo:
+              "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           },
         },
         {
@@ -146,7 +151,8 @@ const etatInitial = {
           auteur: {
             nom: "Lemoine",
             prenom: "Luc",
-            photo: { man },
+            photo:
+              "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
           },
         },
       ],
@@ -172,7 +178,8 @@ const etatInitial = {
           auteur: {
             nom: "Benoit",
             prenom: "Lucas",
-            photo: { man },
+            photo:
+              "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           },
         },
         {
@@ -192,7 +199,8 @@ const etatInitial = {
           auteur: {
             nom: "Lemoine",
             prenom: "Clara",
-            photo: { man },
+            photo:
+              "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           },
         },
       ],
@@ -218,7 +226,8 @@ const etatInitial = {
           auteur: {
             nom: "Durand",
             prenom: "Élise",
-            photo: { man },
+            photo:
+              "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
           },
         },
         {
@@ -238,13 +247,13 @@ const etatInitial = {
           auteur: {
             nom: "Sauvage",
             prenom: "Maxime",
-            photo: { man },
+            photo:
+              "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
           },
         },
       ],
     },
   ],
-
   selectedVideo: null,
   selectedPlaylist: null,
 };
