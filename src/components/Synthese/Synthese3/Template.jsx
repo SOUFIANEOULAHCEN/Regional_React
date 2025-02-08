@@ -197,7 +197,7 @@ export default function Template() {
                         <div className="flex justify-center gap-10 my-4">
                           <button
                             onClick={() => HandleLike(video.id)}
-                            className="bg-blue-900  py-2 px-3  rounded-lg hover:text-green-600 duration-300 transition-all text-3xl flex items-center gap-1"
+                            className="bg-blue-900  py-2 px-3  rounded-lg hover:text-green-600 duration-300 transition-all text-3xl flex items-center gap-1 shadow-lg"
                           >
                             <BiSolidLike />
                             <span className="text-xl font-bold">
@@ -206,7 +206,7 @@ export default function Template() {
                           </button>
                           <button
                             onClick={() => HandleDisLike(video.id)}
-                            className="bg-blue-900  px-3 py-2 rounded-lg hover:text-red-600 duration-300 transition-all text-3xl flex items-center gap-1"
+                            className="bg-blue-900  px-3 py-2 rounded-lg hover:text-red-600 duration-300 transition-all text-3xl flex items-center gap-1 shadow-lg"
 
                           >
                             <BiSolidDislike />
@@ -218,7 +218,7 @@ export default function Template() {
                         {/* comments */}
                         <div
                           onClick={() => setComment(!comment)}
-                          className="flex items-center gap-4 my-4 text-gray-100 text-2xl text-left px-3 duration-300 transition-all cursor-pointer"
+                          className="flex items-center gap-4 mt-4 mb-2 font-bold text-gray-100 text-xl text-left px-3 duration-300 transition-all cursor-pointer"
                         >
                           les commentaires{" "}
                           {comment ? <FaChevronUp /> : <FaChevronDown />}
