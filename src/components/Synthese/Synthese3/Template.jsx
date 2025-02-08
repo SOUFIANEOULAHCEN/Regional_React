@@ -6,6 +6,7 @@ import { FaChevronUp } from "react-icons/fa";
 import { FaCaretLeft } from "react-icons/fa6";
 import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 
 import {
   SelectPlaylist,
@@ -56,12 +57,30 @@ export default function Template() {
         icon: "warning",
         confirmButtonText: "OK",
         timer: 2500,
+        customClass: {
+          popup: "custom-swal-popup",
+          title: "custom-swal-title",
+          confirmButton: "custom-swal-button",
+        },
       });
       return;
     }
     dispatch(AddComment(idVideo, comment));
     setCommentText("");
   };
+  // const HandleComment = (idVideo, comment) => {
+  //   if (comment.trim() === "") {
+  //     Swal.fire({
+  //       title: "Le commentaire est vide",
+  //       icon: "warning",
+  //       confirmButtonText: "OK",
+  //       timer: 2500,
+  //     });
+  //     return;
+  //   }
+  //   dispatch(AddComment(idVideo, comment));
+  //   setCommentText("");
+  // };
   // const HandleComment = (idVideo, comment) => {
   //   if (comment.trim() === "") {
   //     setShowAlert(true);
@@ -115,7 +134,7 @@ export default function Template() {
           //   </svg>
           //   <span>Le commentaire est vide</span>
           // </div>
-          <template id="my-template">
+          <template id="my-template"  >
             <swal-title>Le commentaire est vide</swal-title>
             <swal-icon type="warning" color="red"></swal-icon>
             {/* <swal-button type="confirm">Save As</swal-button> */}
