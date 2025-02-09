@@ -47,6 +47,13 @@ const RoutesHome = () => {
           >
             Analyse des ventes du magasin
           </Link>
+          <Link
+            to="/Fes_Meknes"
+            className="btn bg-gray-100 text-gray-900 shadow-lg font-semibold px-4 py-2 rounded-lg hover:bg-gray-300 hover:text-gray-950 hover:scale-[1.02] duration-300 transition"
+            onClick={handleClick}
+          >
+          Fes meknes regional
+          </Link>
         </div>
       ) : loading ? (
         <div className="flex items-center justify-center h-screen z-50">
